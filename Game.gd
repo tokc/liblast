@@ -199,8 +199,10 @@ func get_port():
 
 func initialize_server(join=true):
 	peer.create_server(SERVER_PORT, MAX_PLAYERS)
-	get_tree().connect("network_peer_connected", self, "on_peer_connected")
-	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
+	if get_tree().connect("network_peer_connected", self, "on_peer_connected") != OK:
+		print("Error connecting signal.")
+	if get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected") != OK:
+		print("Error connecting signal.")
 	get_tree().network_peer = peer
 	
 	initialize()
@@ -211,8 +213,10 @@ func initialize_server(join=true):
 
 func initialize_client():
 	peer.create_client(SERVER_IP, SERVER_PORT)
-	get_tree().connect("connected_to_server", self, "on_connection_established")
-	get_tree().connect("connection_failed", self, "on_connection_failed")
+	if get_tree().connect("connected_to_server", self, "on_connection_established") != OK:
+		print("Error connecting signal.")
+	if get_tree().connect("connection_failed", self, "on_connection_failed") != OK:
+		print("Error connecting signal.")
 	get_tree().network_peer = peer
 	
 	initialize()

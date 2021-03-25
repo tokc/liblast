@@ -9,7 +9,8 @@ func set_character(packed_character):
 	character.show_healthbar = false
 	
 	$Viewport.add_child(character)
-	$CharacterDisplay.connect("pressed", self, "select_character")
+	if $CharacterDisplay.connect("pressed", self, "select_character") != OK:
+		print("Error connecting signal.")
 
 func select_character():
 	emit_signal("character_selected")
