@@ -1,6 +1,6 @@
 extends Control
 
-func update_ammo(var weapon, var amount):
+func update_ammo(var _weapon, var amount):
 	$Weapon/VBoxContainer/RoundsClips.text = str(amount)
 
 func updateHealth(health: int):

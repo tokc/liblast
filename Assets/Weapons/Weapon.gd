@@ -116,7 +116,7 @@ func spawn_casing():
 
 remote func compute_bullet_flyby():
 	var local_player = get_tree().root.get_node("Game").local_player
-	var transform = find_node("Muzzle").global_transform
+	var _transform = find_node("Muzzle").global_transform
 	
 	var from = global_transform.xform(Vector3())
 	var to = global_transform.xform(Vector3(-1000, 0, 0))

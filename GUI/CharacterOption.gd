@@ -14,5 +14,5 @@ func set_character(packed_character):
 func select_character():
 	emit_signal("character_selected")
 
-func _process(delta):
+func _process(_delta):
 	$Viewport.size = rect_size

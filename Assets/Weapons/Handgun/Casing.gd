@@ -17,12 +17,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	$Smoke.global_transform.basis = Transform.IDENTITY.basis # reset particle emmiter rotation
 
 func _on_FreeTimer_timeout():
 	queue_free()
-func _on_Casing_body_entered(body):
+func _on_Casing_body_entered(_body):
 	
 	$AudioStreamPlayer3D.max_db = max(20 - (linear_velocity.length() * 10), 0)
 	$AudioStreamPlayer3D.pitch_scale = rand_range(0.98, 1.02)

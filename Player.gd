@@ -178,7 +178,7 @@ func fall(delta):
 	was_on_floor = is_on_floor()
 	
 
-master func on_hit(damage, location):
+master func on_hit(_damage, location):
 	set_health(health - 30)
 	
 	rpc("blood_splatter", location)
@@ -244,7 +244,7 @@ func spawn():
 func shoot():
 	var weapon = find_node("Weapon")
 	
-	var remaining_ammo = weapon.shoot($Camera)
+	var _remaining_ammo = weapon.shoot($Camera)
 
 func reload():
 	var weapon = find_node("Weapon")
