@@ -98,12 +98,15 @@ remote func jump():
 		$Sounds/Jump.play()
 		weapon_bob_anim.travel("Jump")
 
-"""
-# Charge when empty variant.
 func jetpack(delta):
-	#debug.text = "Jetpack fuel: %s\nJetpack active: %s\nJetpack used: %s\nJetpack sound: %s" % [
-	#	jetpack_fuel, jetpack_active, jetpack_used, !$Sounds/Jetpack.stream_paused
-	#]
+	# Swap these to try the different versions of the jetpack.
+	jetpack_grounded(delta)
+	#jetpack_empty(delta)
+
+func jetpack_empty(delta):
+	debug.text = "JP fuel: %s\nJP active: %s\nJP used: %s\nJP sound: %s" % [
+		jetpack_fuel, jetpack_active, jetpack_used, !$Sounds/Jetpack.stream_paused
+	]
 	
 	# Enable jetpack when it is fully charged.
 	if jetpack_fuel == JETPACK_FUEL_MAX:
@@ -126,11 +129,10 @@ func jetpack(delta):
 			0.0,
 			JETPACK_FUEL_MAX
 		)
-"""
 
 # Charge when grounded variant.
-func jetpack(delta):
-	debug.text = "Jetpack fuel: %s\nJetpack active: %s\nJetpack sound: %s" % [
+func jetpack_grounded(delta):
+	debug.text = "JP fuel: %s\nJP active: %s\nJP sound: %s" % [
 		jetpack_fuel, jetpack_active, !$Sounds/Jetpack.stream_paused
 	]
 	
@@ -152,7 +154,6 @@ func jetpack(delta):
 			$Sounds/Jetpack.stream_paused = false
 		else:
 			$Sounds/Jetpack.stream_paused = true
-	
 
 remote func mouselook_abs(x, y):
 	camera.rotation.x = x
