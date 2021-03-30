@@ -3,13 +3,28 @@
 [ext_resource path="res://PlayerListItem.gd" type="Script" id=1]
 
 [node name="Player" type="HBoxContainer"]
+anchor_right = 1.0
 margin_bottom = 14.0
+size_flags_horizontal = 3
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Nickname" type="Label" parent="."]
-margin_right = 28.0
+margin_right = 338.0
 margin_bottom = 14.0
+size_flags_horizontal = 3
 text = "TEST"
+
+[node name="Kills" type="Label" parent="."]
+margin_left = 342.0
+margin_right = 681.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+
+[node name="Deaths" type="Label" parent="."]
+margin_left = 685.0
+margin_right = 1024.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
