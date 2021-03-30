@@ -251,7 +251,6 @@ func walk(delta):
 	elif walking_speed.length() == 0 and is_on_floor:
 		weapon_bob_anim.travel("Idle")
 
-
 func fall(delta):
 	if is_on_floor:
 		if not was_on_floor: # if this is the first frame of ground conotact after a frame of no ground contact - we've just ended a fall
@@ -261,7 +260,6 @@ func fall(delta):
 		velocity += delta * GRAVITY
 	
 	was_on_floor = is_on_floor
-	
 
 master func on_hit(damage, location):
 	set_health(health - 30)
@@ -360,7 +358,6 @@ func _input(event):
 		shoot()
 	if event.is_action_pressed("WeaponReload"):
 		reload()
-		
 
 func set_local_player():
 	set_network_master(get_tree().get_network_unique_id())
@@ -394,7 +391,3 @@ func _ready():
 	# initialize sound looping
 	
 	#$Sounds/Jetpack.stream.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
