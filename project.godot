@@ -8,8 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
+} ]
 _global_script_class_icons={
+"Player": ""
 }
 
 [application]
@@ -87,5 +93,5 @@ MoveJetpack={
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
 quality/voxel_cone_tracing/high_quality=true
+environment/default_environment="res://default_env.tres"
